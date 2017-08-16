@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+  test:
+    volumes:
+      - ./:/srv
+    image: ypereirareis/prestissimo:latest
+    command: composer run test
+
+  interactive:
+    working_dir: /srv
+    volumes:
+      - ./:/srv
+    entrypoint: bash
+    image: habitissimo/psysh:latest
