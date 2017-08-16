@@ -4,12 +4,10 @@ sudo: false
 
 matrix:
   include:
-    - php: 5.6
-      env: COLLECT_COVERAGE=true VALIDATE_CODING_STYLE=true
     - php: 7.0
       env: COLLECT_COVERAGE=true VALIDATE_CODING_STYLE=false
     - php: 7.1
-      env: COLLECT_COVERAGE=true VALIDATE_CODING_STYLE=false
+      env: COLLECT_COVERAGE=true VALIDATE_CODING_STYLE=true
     - php: master
       env: COLLECT_COVERAGE=true VALIDATE_CODING_STYLE=false
   allow_failures:

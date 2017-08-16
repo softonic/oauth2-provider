@@ -9,6 +9,7 @@
     "issues": "https://github.com/softonic/oauth2-provider/issues"
   },
   "require": {
+    "php": ">=7.0",
     "league/oauth2-client": "^2.2",
     "psr/http-message": "^1.0"
   },
