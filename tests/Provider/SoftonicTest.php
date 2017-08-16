@@ -84,7 +84,7 @@ class SoftonicTest extends TestCase
         $response->expects($this->once())
             ->method('getStatusCode')
             ->willReturn(500);
-        $this->assertNull($this->provider->checkResponse($response, $parsedResponse));
+        $this->provider->checkResponse($response, $parsedResponse);
     }
 
     public function testCheckResponseWhenTheResponseScopeMissingShouldThrowAIdentityProviderException()
@@ -109,7 +109,7 @@ class SoftonicTest extends TestCase
         $response->expects($this->once())
             ->method('getStatusCode')
             ->willReturn(500);
-        $this->assertNull($this->provider->checkResponse($response, $parsedResponse));
+        $this->provider->checkResponse($response, $parsedResponse);
     }
 
     public function testCreateResourceOwner()
