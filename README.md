@@ -8,12 +8,19 @@ Softonic OAuth2 Provider
 [![Quality Score](https://img.shields.io/scrutinizer/g/softonic/oauth2-provider.svg?style=flat-square)](https://scrutinizer-ci.com/g/softonic/oauth2-provider)
 [![Total Downloads](https://img.shields.io/packagist/dt/softonic/oauth2-provider.svg?style=flat-square)](https://packagist.org/packages/softonic/oauth2-provider)
 
-OAuth2 provider.
+This package provides Softonic OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
 
-Documentation
+Installation
 -------
 
-Usage example:
+To install, use composer:
+
+```
+composer require softonic/oauth2-provider
+```
+
+Usage
+-------
 
 ``` php
 <?php
@@ -27,6 +34,7 @@ $client = new Softonic\OAuth2\Client\Provider\Softonic($options);
 
 $token = $client->getAccessToken('client_credentials', ['scope' => 'myscope']);
 ```
+
 
 Testing
 -------
