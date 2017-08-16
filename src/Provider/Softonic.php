@@ -12,7 +12,9 @@ class Softonic extends AbstractProvider
     const OAUTH_HOSTNAME = 'oauth-v2.softonic.com';
 
     /**
-     * Get authorization url to begin OAuth flow
+     * Returns the base URL for authorizing a client.
+     *
+     * Eg. https://oauth.service.com/authorize
      *
      * @return string
      */
@@ -22,9 +24,12 @@ class Softonic extends AbstractProvider
     }
 
     /**
-     * Get access token url to retrieve token
+     * Returns the base URL for requesting an access token.
      *
-     * @param  array  $params
+     * Eg. https://oauth.service.com/token
+     *
+     * @param array $params
+     *
      * @return string
      */
     public function getBaseAccessTokenUrl(array $params)
@@ -33,7 +38,7 @@ class Softonic extends AbstractProvider
     }
 
     /**
-     * Get provider url to fetch user details
+     * Returns the URL for requesting the resource owner's details.
      *
      * @param AccessToken $token
      *
@@ -45,10 +50,10 @@ class Softonic extends AbstractProvider
     }
 
     /**
-     * Get the default scopes used by this provider.
+     * Returns the default scopes used by this provider.
      *
-     * This should not be a complete list of all scopes, but the minimum
-     * required for the provider user interface!
+     * This should only be the scopes that are required to request the details
+     * of the resource owner, rather than all the available scopes.
      *
      * @return array
      */
@@ -58,10 +63,11 @@ class Softonic extends AbstractProvider
     }
 
     /**
-     * Check a provider response for errors.
+     * Checks a provider response for errors.
      *
-     * @param ResponseInterface $response
-     * @param string            $data     Parsed response data
+     * @param  ResponseInterface         $response
+     * @param  array|string              $data     Parsed response data
+     * @throws IdentityProviderException
      *
      */
     protected function checkResponse(ResponseInterface $response, $data)
@@ -109,12 +115,13 @@ class Softonic extends AbstractProvider
     }
 
     /**
-     * Generate a user object from a successful user details request.
+     * Generates a resource owner object from a successful resource owner
+     * details request.
      *
-     * @param object      $response
+     * @param array       $response
      * @param AccessToken $token
      *
-     * @return SoftonicResourceOwner
+     * @return ResourceOwnerInterface
      */
     protected function createResourceOwner(array $response, AccessToken $token)
     {
