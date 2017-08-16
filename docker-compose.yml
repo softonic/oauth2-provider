@@ -11,5 +11,5 @@ services:
     working_dir: /srv
     volumes:
       - ./:/srv
-    entrypoint: bash
+    entrypoint: /psysh/psysh
     image: habitissimo/psysh:latest
