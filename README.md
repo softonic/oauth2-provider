@@ -9,6 +9,7 @@ Softonic OAuth2 Provider
 [![Total Downloads](https://img.shields.io/packagist/dt/softonic/oauth2-provider.svg?style=flat-square)](https://packagist.org/packages/softonic/oauth2-provider)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/softonic/oauth2-provider.svg?style=flat-square)](http://isitmaintained.com/project/softonic/oauth2-provider "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/softonic/oauth2-provider.svg?style=flat-square)](http://isitmaintained.com/project/softonic/oauth2-provider "Percentage of issues still open")
+
 This package provides Softonic OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
 
 Installation
