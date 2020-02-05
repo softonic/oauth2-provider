@@ -9,7 +9,7 @@ use Psr\Http\Message\ResponseInterface;
 
 class Softonic extends AbstractProvider
 {
-    const OAUTH_HOSTNAME = 'oauth-v2.softonic.com';
+    const OAUTH_HOSTNAME = 'oauth-v3.softonic.com';
 
     /**
      * Returns the base URL for authorizing a client.
