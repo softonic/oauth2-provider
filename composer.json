@@ -22,12 +22,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Softonic\\<NAMESPACE>\\": "src/"
+      "Softonic\\OAuth2\\Client\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Softonic\\<NAMESPACE>\\": "tests/"
+      "Softonic\\OAuth2\\Client\\": "tests/"
     }
   },
   "scripts": {

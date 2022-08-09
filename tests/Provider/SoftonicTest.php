@@ -1,19 +1,20 @@
 <?php
 
-namespace Softonic\OAuth2\Client\Provider\Test;
+namespace Softonic\OAuth2\Client\Provider;
 
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Token\AccessToken;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
-use Softonic\OAuth2\Client\Provider\Softonic;
 
 class SoftonicTest extends TestCase
 {
-    private $provider;
+    private Softonic $provider;
 
-    public function setUp()
+    protected function setUp(): void
     {
+        parent::setUp();
+
         $this->provider = new Softonic();
     }
 
@@ -66,7 +67,7 @@ class SoftonicTest extends TestCase
     public function testCheckResponseWhenTheResponseContainsErrorsShouldThrowAIdentityProviderException()
     {
         $parsedResponse = [
-            'error' => 'invalid_client',
+            'error'             => 'invalid_client',
             'error_description' => 'The client credentials are invalid',
         ];
         $this->provider = new class() extends Softonic {
@@ -90,8 +91,8 @@ class SoftonicTest extends TestCase
     public function testCheckResponseWhenTheResponseScopeMissingShouldThrowAIdentityProviderException()
     {
         $parsedResponse = [
-            'status' => false,
-            'message' => 'We are sorry, but something went terribly wrong.',
+            'status'    => false,
+            'message'   => 'We are sorry, but something went terribly wrong.',
             'exception' => 'Missing request scopes',
         ];
         $this->provider = new class() extends Softonic {
@@ -120,8 +121,8 @@ class SoftonicTest extends TestCase
                 return parent::createResourceOwner($response, $token);
             }
         };
-        $response = [];
-        $accessToken = new AccessToken(['access_token' => 'foobar']);
+        $response       = [];
+        $accessToken    = new AccessToken(['access_token' => 'foobar']);
         $this->assertInstanceOf(
             \League\OAuth2\Client\Provider\ResourceOwnerInterface::class,
             $this->provider->createResourceOwner($response, $accessToken)
