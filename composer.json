@@ -9,28 +9,42 @@
     "issues": "https://github.com/softonic/oauth2-provider/issues"
   },
   "require": {
+    "php": ">=8.0",
     "league/oauth2-client": "^2.2",
     "psr/http-message": "^1.0"
   },
   "require-dev": {
-    "php": ">=7.0",
-    "phpunit/phpunit": "^6.0",
-    "friendsofphp/php-cs-fixer": "^2.4"
+    "phpunit/phpunit": "^9.0",
+    "mockery/mockery": "^1.0",
+    "friendsofphp/php-cs-fixer": "^3.6",
+    "squizlabs/php_codesniffer": "^3",
+    "rector/rector": "^0.11.20"
   },
   "autoload": {
     "psr-4": {
-      "Softonic\\OAuth2\\Client\\": "src/"
+      "Softonic\\<NAMESPACE>\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Softonic\\OAuth2\\Client\\Test\\": "tests/"
+      "Softonic\\<NAMESPACE>\\": "tests/"
     }
   },
   "scripts": {
-    "test": "phpunit --coverage-text; php-cs-fixer fix -v --diff --dry-run --allow-risky=yes;",
+    "test": [
+      "@checkstyle",
+      "@phpunit"
+    ],
     "phpunit": "phpunit --coverage-text",
-    "phpcs": "php-cs-fixer fix -v --diff --dry-run --allow-risky=yes;",
-    "fix-cs": "php-cs-fixer fix -v --diff --allow-risky=yes;"
+    "checkstyle": [
+      "php-cs-fixer fix -v --diff --dry-run --allow-risky=yes",
+      "rector --dry-run"
+    ],
+    "fix-checkstyle": [
+      "@php-cs-fixer",
+      "@rector"
+    ],
+    "php-cs-fixer": "php-cs-fixer fix -v --diff --allow-risky=yes",
+    "rector": "rector"
   }
 }

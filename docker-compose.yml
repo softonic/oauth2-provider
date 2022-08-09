@@ -1,15 +1,7 @@
-version: '3.2'
+version: '3.8'
 
 services:
-  test:
+  composer:
     volumes:
-      - ./:/srv
-    image: ypereirareis/prestissimo:latest
-    command: composer run test
-
-  interactive:
-    working_dir: /srv
-    volumes:
-      - ./:/srv
-    entrypoint: /psysh/psysh
-    image: habitissimo/psysh:latest
+    - ./:/app
+    image: softonic/composer-rector:latest
