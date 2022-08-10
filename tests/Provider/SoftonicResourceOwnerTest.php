@@ -1,9 +1,8 @@
 <?php
 
-namespace Softonic\OAuth2\Client\Provider\Test;
+namespace Softonic\OAuth2\Client\Provider;
 
 use PHPUnit\Framework\TestCase;
-use Softonic\OAuth2\Client\Provider\SoftonicResourceOwner;
 
 class SoftonicResourceOwnerTest extends TestCase
 {
@@ -16,7 +15,7 @@ class SoftonicResourceOwnerTest extends TestCase
         $resourceOwner->getId();
     }
 
-    public function testToArayIsNotImplemented()
+    public function testToArrayIsNotImplemented()
     {
         $this->expectException(\BadMethodCallException::class);
         $this->expectExceptionMessage('Method not implemented yet.');
