@@ -12,7 +12,10 @@ class Softonic extends AbstractProvider
 {
     use BearerAuthorizationTrait;
 
-    const OAUTH_HOSTNAME = 'oauth-v3.softonic.com';
+    private function getOAuthHost(): string
+    {
+        return getenv('OAUTH_HOST') ?: 'https://oauth-v3.softonic.com';
+    }
 
     /**
      * Returns the base URL for authorizing a client.
@@ -23,7 +26,7 @@ class Softonic extends AbstractProvider
      */
     public function getBaseAuthorizationUrl()
     {
-        return 'https://' . static::OAUTH_HOSTNAME . '/authorize';
+        return $this->getOAuthHost() . '/authorize';
     }
 
     /**
@@ -37,7 +40,7 @@ class Softonic extends AbstractProvider
      */
     public function getBaseAccessTokenUrl(array $params)
     {
-        return 'https://' . static::OAUTH_HOSTNAME . '/token';
+        return $this->getOAuthHost() . '/token';
     }
 
     /**
