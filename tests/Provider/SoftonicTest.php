@@ -20,13 +20,13 @@ class SoftonicTest extends TestCase
 
     public function testGetBaseAuthorizationUrl()
     {
-        $expectedUrl = 'https://oauth-v3.softonic.com/authorize';
+        $expectedUrl = 'https://oauth-v5.softonic.com/realms/softonic/protocol/openid-connect/authorize';
         $this->assertSame($expectedUrl, $this->provider->getBaseAuthorizationUrl());
     }
 
     public function testGetBaseAccessTokenUrl()
     {
-        $expectedUrl = 'https://oauth-v3.softonic.com/token';
+        $expectedUrl = 'https://oauth-v5.softonic.com/realms/softonic/protocol/openid-connect/token';
         $this->assertSame($expectedUrl, $this->provider->getBaseAccessTokenUrl([]));
     }
 
