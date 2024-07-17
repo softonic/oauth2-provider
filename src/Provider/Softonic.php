@@ -14,7 +14,7 @@ class Softonic extends AbstractProvider
 
     private function getOAuthHost(): string
     {
-        return getenv('OAUTH_HOST') ?: 'https://oauth-v3.softonic.com';
+        return getenv('OAUTH_HOST') ?: 'https://oauth-v5.softonic.com/realms/softonic/protocol/openid-connect';
     }
 
     /**
